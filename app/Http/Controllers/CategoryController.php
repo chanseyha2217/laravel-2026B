@@ -39,4 +39,32 @@ class CategoryController extends Controller
         // return view('categories.list'); don't like this
         return redirect('/categories');
     }
+
+    public function edit($id)
+    {
+        $category = Category::find($id);
+        // dd( $category );
+        return view('categories.edit', compact('category'));
+    }
+
+    public function update($id)
+    {
+        // dd($id);
+        // dd(request()->all());
+        $category = Category::find($id);
+        $category->update(
+            [
+                'name' => request()->name,
+                'dec' => request()->dec,
+            ]
+        );
+        return redirect('/categories');
+    }
+    public function destroy($id)
+    {
+        // dd($id);
+        $category = Category::find($id);
+        $category->delete();
+        return redirect('/categories');
+    }
 }

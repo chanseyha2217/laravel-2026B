@@ -8,12 +8,13 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 
 <body>
     <div class="container">
         {{-- {{dd($categories)}} --}}
-        <a href="{{route('categories.create')}}" class="btn btn-info"> create+</a>
+        <a href="{{ route('categories.create') }}" class="btn btn-info"> create+</a>
         <table class="table">
             <thead>
                 <tr>
@@ -30,11 +31,21 @@
                         <td>{{ $category->name }}</td>
                         <td>{{ $category->dec }}</td>
                         <td>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#showCategory{{$category->id}}">
-                                view
+                            <a href="" data-bs-toggle="modal" data-bs-target="#showCategory{{ $category->id }}">
+                                <i class="fa-solid fa-eye text-success"></i>
+                            </a>
+                            |
+                            <a href="{{ route('categories.edit', $category->id) }}">
+                                <i class="fa-solid fa-pen-to-square text-info"></i>
+                            </a>
+                            |
+                            <a href="" data-bs-toggle="modal"
+                                data-bs-target="#deleteCategory{{ $category->id }}">
+                                <i class="fa-solid fa-trash text-danger"></i>
                             </a>
                             <!-- Modal -->
                             @include('categories.show')
+                            @include('categories.delete')
                         </td>
                     </tr>
                 @endforeach
