@@ -6,24 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
-    {
-        if (! Schema::hasTable('products') || Schema::hasColumn('products', 'size')) {
-            return;
-        }
-
-        Schema::table('products', function (Blueprint $table) {
-            $table->string('size');
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
     {
         if (! Schema::hasTable('products') || ! Schema::hasColumn('products', 'size')) {
             return;
@@ -31,6 +14,17 @@ return new class extends Migration
 
         Schema::table('products', function (Blueprint $table) {
             $table->dropColumn('size');
+        });
+    }
+
+    public function down(): void
+    {
+        if (! Schema::hasTable('products') || Schema::hasColumn('products', 'size')) {
+            return;
+        }
+
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('size')->nullable();
         });
     }
 };

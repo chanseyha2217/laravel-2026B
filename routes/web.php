@@ -27,8 +27,7 @@ Route::get('/users/{username}/{email}', [UserController::class, 'getUsernameEmai
     ->name('users.getUsernameEmail');
 
 // product route:
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-
+Route::resource('products', ProductController::class);
 // category route:
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
