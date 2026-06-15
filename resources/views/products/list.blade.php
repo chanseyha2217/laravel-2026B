@@ -25,7 +25,7 @@
                 <td>{{ $product->id }}</td>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->price }}</td>
-                <td>{{ $product->qty }}</td>
+                <td>{{ $product->stock }}</td>
                 <td>{{ $product->category->name ?? 'No Category' }}</td>
                 <td>
                     <a href="/products/{{ $product->id }}">👁️</a> |

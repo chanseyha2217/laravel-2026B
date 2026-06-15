@@ -25,11 +25,11 @@ class ProductController extends Controller
         $request->validate([
             'name'        => 'required',
             'price'       => 'required|numeric',
-            'qty'         => 'required|integer',
+            'stock'       => 'required|integer',
             'category_id' => 'required',
         ]);
 
-        Product::create($request->all());
+        Product::create($request->only(['name', 'price', 'stock', 'category_id']));
         return redirect('/products');
     }
 
@@ -51,11 +51,11 @@ class ProductController extends Controller
         $request->validate([
             'name'        => 'required',
             'price'       => 'required|numeric',
-            'qty'         => 'required|integer',
+            'stock'       => 'required|integer',
             'category_id' => 'required',
         ]);
 
-        Product::findOrFail($id)->update($request->all());
+        Product::findOrFail($id)->update($request->only(['name', 'price', 'stock', 'category_id']));
         return redirect('/products');
     }
 

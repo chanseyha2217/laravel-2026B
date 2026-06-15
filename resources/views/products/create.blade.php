@@ -16,7 +16,7 @@
         </div>
         <div class="mb-3">
             <label>Qty</label>
-            <input type="number" name="qty" class="form-control" required>
+            <input type="number" name="stock" class="form-control" required>
         </div>
         <div class="mb-3">
             <label>Category</label>

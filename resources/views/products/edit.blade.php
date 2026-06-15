@@ -17,7 +17,7 @@
         </div>
         <div class="mb-3">
             <label>Qty</label>
-            <input type="number" name="qty" class="form-control" value="{{ $product->qty }}" required>
+            <input type="number" name="stock" class="form-control" value="{{ $product->stock }}" required>
         </div>
         <div class="mb-3">
             <label>Category</label>
